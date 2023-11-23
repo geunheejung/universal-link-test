@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.hustay.swing.p3cfded673ced4983b0db9399638730cb",
+      "sha256_cert_fingerprints": [
+        "0E:7B:F1:66:AD:31:EF:B1:5D:A1:DC:ED:3A:EA:EA:77:86:1F:E8:C8:10:8C:F1:C9:18:CD:25:BE:B8:84:5B:BB"
+      ]
+    }
+  }
+]
