@@ -89,6 +89,10 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
+        <div>
+      TEST
+      <a href="intent://comixest.com//#Intent;package=com.hustay.swing.p3cfded673ced4983b0db9399638730cb;scheme=https;end">TEST</a>
+    </div>
       </div>
     </main>
   )
