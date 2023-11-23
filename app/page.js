@@ -11,6 +11,8 @@ export default function Home() {
       <div>
         TEST
         <a onClick={this.handleRedirect}>TEST</a>
+
+        <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
       </div>
     </main>
   )
