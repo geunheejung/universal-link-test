@@ -18,11 +18,9 @@ export default function Home() {
 
   const onLaunchFail = () => {
     const ele = document.getElementById('AppStore');
-    // setTimeout(() => {
-    //   ele.click();
-    // })
+    ele.click();
     
-    location.href('https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8');
+    // location.href('https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8');
   }
   
   const launchApp = (url) => {
