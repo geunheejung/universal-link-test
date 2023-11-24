@@ -24,7 +24,13 @@ export default function Home() {
           <a href="com-apple-mobilesafari-tab:https://google.com">Twitter</a>
           </li>
           <li>
-            <a href="https://kyte.travel">TRAVEL</a>
+            <a href="https://kyte.travel">TRAVEL</a>        
+          </li>
+          <li>
+            <a href="https://toss.im/">toss</a>        
+          </li>
+          <li>
+            <a href="https://www.airbnb.co.kr/">airbnb</a>        
           </li>
         </ul>
         
