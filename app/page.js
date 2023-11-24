@@ -11,8 +11,21 @@ export default function Home() {
     location.href = 'intent://comixest.com//#Intent;package=com.hustay.swing.p3cfded673ced4983b0db9399638730cb;scheme=https;end'
   }}>TEST</a>
 
-        <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
-        <a href="twitter:twitter">Twitter</a>
+{/* com-apple-mobilesafari-tab:https://google.com */}
+        <ul>
+          <li>
+          <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
+          </li>
+          <li>
+          <a href="twitter:twitter">Twitter</a>
+
+          </li>
+          <li>
+          <a href="com-apple-mobilesafari-tab:https://google.com">Twitter</a>
+          </li>
+        </ul>
+        
+        
       </div>
     </main>
   )
