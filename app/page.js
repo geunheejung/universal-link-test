@@ -12,6 +12,7 @@ export default function Home() {
   }}>TEST</a>
 
         <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
+        <a href="twitter:twitter">Twitter</a>
       </div>
     </main>
   )
