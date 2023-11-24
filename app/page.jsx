@@ -18,8 +18,11 @@ export default function Home() {
 
   const onLaunchFail = () => {
     const ele = document.getElementById('AppStore');
-    ele.click();
-    // location.href('https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8');
+    // setTimeout(() => {
+    //   ele.click();
+    // })
+    
+    location.href('https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8');
   }
   
   const launchApp = (url) => {
@@ -77,7 +80,7 @@ export default function Home() {
             href="https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8"
             target="_blank"
             id="AppStore"
-            style={{ visibility: 'hidden' }}
+            // style={{ visibility: 'hidden' }}
           >
             app store
             </a>
