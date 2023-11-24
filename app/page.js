@@ -29,8 +29,8 @@ export default function Home() {
           <li>
             <a href="https://toss.im/">toss</a>        
           </li>
-          <li>
-            <a href="https://www.airbnb.co.kr/">airbnb</a>        
+          <li>          
+            <a href="https://www.airbnb.co.kr/account-details">airbnb</a>        
           </li>
         </ul>
         
