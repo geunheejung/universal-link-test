@@ -4,8 +4,10 @@ import styles from './page.module.css'
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  
 
   const timerRef = useRef();
+  const popupRef = useRef();
 
   useEffect(() => {
     function handler() {
@@ -17,20 +19,23 @@ export default function Home() {
   }, []);
 
   const onLaunchFail = () => {
-    const ele = document.getElementById('AppStore');
-    ele.click();
-    
-    // location.href('https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8');
+    // document.getElementById('AppStore').click();
+    popupRef.current.location.href = 'https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8'
   }
+
+  
   
   const launchApp = (url) => {
     // (1) 주어진 딥링크로 앱을 실행한다
     location.href = url;
-  
+
+    popupRef.current = window.open('about:blank','',"top=10, left=10, width=1, height=1, status=no, menubar=no, toolbar=no, resizable=no");
+    
+
     // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
     timerRef.current = setTimeout(() => {
       onLaunchFail();
-    }, 2000);
+    }, 1000);
   };
 
   const handleSubmit = () => {
