@@ -6,22 +6,40 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const timeRef = useRef();
 
+  // useEffect(() => {
+  //   window.addEventListener('visibilitychange', () => {
+  //     alert(1)
+  //     clearTimeout(timeRef.current);
+  //   });
+  // }, []);
+
+  // const handleTwitter = () => {
+
+  //   document.location.href = `twitter://search?query=%23hashtag`;
+
+  //   timeRef.current = setTimeout(() => {
+  //     document.location.href = "https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791";
+  //   }, 1000);
+  // }
+
   useEffect(() => {
-    window.addEventListener('visibilitychange', () => {
-      alert(1)
-      clearTimeout(timeRef.current);
-    });
+    function handler() {
+      clearTimeout(timerRef.current);
+    }
+  
+    // (3) window의 visibilitychange 이벤트가 발생하면 앱이 실행됐다고 가정한다. timeout을 제거한다. 
+    window.addEventListener('visibilitychange', handler);
   }, []);
-
-  const handleTwitter = () => {
-    
-
+  
+  const launchApp = (url) => {
+    // (1) 주어진 딥링크로 앱을 실행한다
     document.location.href = `twitter://search?query=%23hashtag`;
-
-    timeRef.current = setTimeout(() => {
-      document.location.href = "https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791";
-    }, 1000);
-  }
+  
+    // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
+    timerRef.current = setTimeout(() => {
+      document.location.href = `https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791`
+    }, 2000);
+  };
 
   return (
     <main className={styles.main}>
@@ -41,7 +59,7 @@ export default function Home() {
           <li>
 
           <h1>
-            <a onClick={() => handleTwitter()}>Twitter</a>
+            <a onClick={() => launchApp()}>Twitter</a>
 
             
           </h1>
