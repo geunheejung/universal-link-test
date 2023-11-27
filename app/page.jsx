@@ -26,6 +26,8 @@ export default function Home() {
     location.href = 'intent://comixest.com//#Intent;package=com.hustay.swing.p3cfded673ced4983b0db9399638730cb;scheme=https;end'
   }}>TEST</a>
 
+    1.0
+
 {/* com-apple-mobilesafari-tab:https://google.com */}
         <ul>
           <li>

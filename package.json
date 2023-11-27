@@ -9,7 +9,8 @@
     "lint": "next lint",
     "a": "git add *",
     "b": "git commit -m 'test'",
-    "c": "git push"
+    "c": "git push",
+    "d": "a && b && c"
   },
   "dependencies": {
     "react": "^18",
