@@ -4,7 +4,7 @@ import styles from './page.module.css'
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
-  const timeRef = useRef();
+  const timerRef = useRef();
 
   // useEffect(() => {
   //   window.addEventListener('visibilitychange', () => {
@@ -37,6 +37,7 @@ export default function Home() {
   
     // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
     timerRef.current = setTimeout(() => {
+      debugger;
       document.location.href = `https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791`
     }, 2000);
   };
