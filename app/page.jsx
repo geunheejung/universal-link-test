@@ -23,8 +23,6 @@ export default function Home() {
     // document.getElementById('AppStore').click();    
     isFail(true);
   }
-
-  
   
   const launchApp = (url) => {
     // (1) 주어진 딥링크로 앱을 실행한다
@@ -53,7 +51,14 @@ export default function Home() {
     return () => {
       isFail(false);
     }
-  }, [ fail ])
+  }, [ fail ]);
+
+  const handleTwitter = () => {
+    setTimeout(() => {
+      document.location.href = "https://play.google.com/1234";
+    }, 2000);
+  }
+
 
   return (
     <main className={styles.main}>
@@ -69,7 +74,10 @@ export default function Home() {
           <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
           </li>
           <li>
-          <a href="twitter://search?query=%23hashtag">Twitter</a>
+
+          <h1>
+            <a onClick={() => handleTwitter()} href="twitter://search?query=%23hashtag">Twitter</a>
+          </h1>
 
           </li>
         
