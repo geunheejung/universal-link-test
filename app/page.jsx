@@ -11,7 +11,7 @@ export default function Home() {
       clearTimeout(timeRef.current);
     });
 
-    document.location.href = `twitter://search?query=%23hashtag`;
+    window.open(`twitter://search?query=%23hashtag`);
 
     timeRef.current = setTimeout(() => {
       document.location.href = "https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791";
