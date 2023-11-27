@@ -6,10 +6,15 @@ export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
   const timeRef = useRef();
 
-  const handleTwitter = () => {
+  useEffect(() => {
     window.addEventListener('visibilitychange', () => {
+      alert(1)
       clearTimeout(timeRef.current);
     });
+  }, []);
+
+  const handleTwitter = () => {
+    
 
     document.location.href = `twitter://search?query=%23hashtag`;
 
