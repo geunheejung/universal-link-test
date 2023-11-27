@@ -76,6 +76,9 @@ export default function Home() {
 
 
 <li>test</li>
+
+<li><a href="https://comixest.com/test.html">
+  SC</a></li>
           
 
           </li>
