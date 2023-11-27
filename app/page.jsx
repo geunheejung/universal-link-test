@@ -4,6 +4,7 @@ import styles from './page.module.css'
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const [fail, isFail] = useState(false);
   
 
   const timerRef = useRef();
@@ -19,8 +20,8 @@ export default function Home() {
   }, []);
 
   const onLaunchFail = () => {
-    // document.getElementById('AppStore').click();
-    popupRef.current.location.href = 'https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8'
+    // document.getElementById('AppStore').click();    
+    isFail(true);
   }
 
   
@@ -29,18 +30,30 @@ export default function Home() {
     // (1) 주어진 딥링크로 앱을 실행한다
     location.href = url;
 
-    popupRef.current = window.open('about:blank','',"top=10, left=10, width=1, height=1, status=no, menubar=no, toolbar=no, resizable=no");
+    // popupRef.current = window.open('about:blank','',"top=10, left=10, width=1, height=1, status=no, menubar=no, toolbar=no, resizable=no");
     
 
     // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
     timerRef.current = setTimeout(() => {
       onLaunchFail();
-    }, 1000);
+    }, 2000);
   };
 
   const handleSubmit = () => {
     launchApp('supertoss://toss/pay')
   }
+
+  useEffect(() => {
+    if (fail) {
+      // location.href = 'https://itunes.apple.com/kr/app/seupeiseukeullaudeu/id1025620281?l=en&amp;mt=8'
+      const a = document.getElementById('AppStore');
+      a.click();
+      
+    }
+    return () => {
+      isFail(false);
+    }
+  }, [ fail ])
 
   return (
     <main className={styles.main}>
@@ -56,12 +69,10 @@ export default function Home() {
           <a href="https://universal-link-test-gamma.vercel.app"> APP DEEP LINK</a>
           </li>
           <li>
-          <a href="twitter:twitter">Twitter</a>
+          <a href="twitter://search?query=%23hashtag">Twitter</a>
 
           </li>
-          <li>
-          <a href="com-apple-mobilesafari-tab:https://google.com">Twitter</a>
-          </li>
+        
           <li>
             <a href="https://kyte.travel">TRAVEL</a>        
           </li>
