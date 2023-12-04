@@ -33,6 +33,8 @@ export default function Home() {
   }, []);
 
   function participate(){
+    let timer;
+    let schInterval;
     // 인터벌, 타이머 삭제
     function clearTimer(){
       clearInterval(schInterval);
