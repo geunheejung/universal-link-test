@@ -24,6 +24,7 @@ export default function Home() {
 
   useEffect(() => {
     function handler() {
+      setIsOpen(false);
       clearTimeout(timerRef.current);
     }
   
@@ -39,6 +40,7 @@ export default function Home() {
     
     timerRef.current = setTimeout(() => {
       setIsOpen(true);
+      
     }, 1000);
   };
 
