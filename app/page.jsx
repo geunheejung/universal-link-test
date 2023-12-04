@@ -31,22 +31,55 @@ export default function Home() {
     // (3) window의 visibilitychange 이벤트가 발생하면 앱이 실행됐다고 가정한다. timeout을 제거한다. 
     window.addEventListener('visibilitychange', handler);
   }, []);
+
+  function participate(){
+    // 인터벌, 타이머 삭제
+    function clearTimer(){
+      clearInterval(schInterval);
+      clearTimeout(timer);
+    }
+      
+    // 인터벌 마다 동작할 기능
+    function intervalSch(){
+      // 매 인터벌 마다 웹뷰가 활성화 인지 체크
+      if(document.webkitHidden || document.hidden){ // 웹뷰 비활성화
+        clearTimer(); // 앱이 설치되어있을 경우 타이머 제거
+      }else{	// 웹뷰 활성화
+        console.log("타이머 동작");
+      }
+    }
   
-  const launchApp = (url) => {
-    // (1) 주어진 딥링크로 앱을 실행한다
-    document.location.href = `twitter://search?query=%23hashtag`;
+    // 앱 실행(iOS인 경우)
+    location.href = 'twitter://search?query=%23hashtag';
   
-    // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
+    // 앱이 설치 되어있는지 체크
+    schInterval = setInterval(intervalSch, 500);
+  
+    timer = setTimeout(function(){
+      if(isAndroid){						
+        location.href ="https://play.google.com/store/apps/details?id=com.twitter.android&hl=ko";							  						
+      }else if(isIOS){							
+        location.href ="https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791";	
+      }
+      clearInterval(schInterval);
+    }, 2000);
+  
+  
+  // const launchApp = (url) => {
+  //   // (1) 주어진 딥링크로 앱을 실행한다
+  //   document.location.href = `twitter://search?query=%23hashtag`;
+  
+  //   // (2) 일정한 시간동안 앱이 실행되지 않으면 특정 기능을 실행하는 timeout을 생성한다 
     
-    const open = window.open('about:blank', '_blank');
-    timerRef.current = setTimeout(() => {
-      // setIsOpen(true);
+  //   const open = window.open('about:blank', '_blank');
+  //   timerRef.current = setTimeout(() => {
+  //     // setIsOpen(true);
 
       
-      document.location.replace(`https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791`) 
+  //     document.location.replace(`https://apps.apple.com/kr/app/%EC%8A%A4%ED%8E%98%EC%9D%B4%EC%8A%A4%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C-%ED%98%B8%EC%8A%A4%ED%8A%B8%EC%84%BC%ED%84%B0/id1526709791`) 
       
-    }, 1000);
-  };
+  //   }, 1000);
+  // };
 
 
   const getMobileOS = () => {
@@ -80,7 +113,7 @@ export default function Home() {
           <li>
 
           <h1>
-            <a onClick={() => launchApp()}>Twitter</a>
+            <a onClick={() => participate()}>Twitter</a>
           </h1>
 
           <li>
